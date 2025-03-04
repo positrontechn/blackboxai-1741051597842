@@ -1,0 +1,191 @@
+.community-loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  padding: 20px;
+}
+
+.loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.loading-icon {
+  width: 60px;
+  height: 60px;
+}
+
+.tree-icon {
+  width: 100%;
+  height: 100%;
+  stroke: #27ae60;
+  stroke-width: 2;
+}
+
+.tree-path {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: drawTree 2s ease-in-out infinite;
+}
+
+.tree-trunk {
+  stroke-dasharray: 20;
+  stroke-dashoffset: 20;
+  animation: drawTrunk 2s ease-in-out infinite;
+}
+
+.loading-text {
+  display: flex;
+  gap: 2px;
+  font-size: 1.2rem;
+  color: #2c3e50;
+}
+
+.loading-text span {
+  opacity: 0;
+  animation: fadeInOut 2s ease-in-out infinite;
+}
+
+/* Stagger the text animation */
+.loading-text span:nth-child(2) { animation-delay: 0.1s; }
+.loading-text span:nth-child(3) { animation-delay: 0.2s; }
+.loading-text span:nth-child(4) { animation-delay: 0.3s; }
+.loading-text span:nth-child(5) { animation-delay: 0.4s; }
+.loading-text span:nth-child(6) { animation-delay: 0.5s; }
+.loading-text span:nth-child(7) { animation-delay: 0.6s; }
+.loading-text span:nth-child(8) { animation-delay: 0.7s; }
+.loading-text span:nth-child(9) { animation-delay: 0.8s; }
+.loading-text span:nth-child(10) { animation-delay: 0.9s; }
+
+.loading-progress {
+  width: 200px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 4px;
+  background: #ecf0f1;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  width: 100%;
+  height: 100%;
+  background: #27ae60;
+  animation: progress 2s ease-in-out infinite;
+  transform-origin: left;
+}
+
+/* Animations */
+@keyframes drawTree {
+  0% {
+    stroke-dashoffset: 100;
+  }
+  50% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 100;
+  }
+}
+
+@keyframes drawTrunk {
+  0%, 40% {
+    stroke-dashoffset: 20;
+  }
+  60%, 100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes progress {
+  0% {
+    transform: scaleX(0);
+  }
+  50% {
+    transform: scaleX(1);
+  }
+  100% {
+    transform: scaleX(0);
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .loading-text {
+    color: #ecf0f1;
+  }
+
+  .tree-icon {
+    stroke: #2ecc71;
+  }
+
+  .progress-bar {
+    background: #2c3e50;
+  }
+
+  .progress-fill {
+    background: #2ecc71;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .community-loading-container {
+    min-height: 300px;
+  }
+
+  .loading-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .loading-text {
+    font-size: 1rem;
+  }
+
+  .loading-progress {
+    width: 150px;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .tree-path,
+  .tree-trunk,
+  .loading-text span,
+  .progress-fill {
+    animation: none;
+  }
+
+  .tree-path,
+  .tree-trunk {
+    stroke-dasharray: none;
+    stroke-dashoffset: none;
+  }
+
+  .loading-text span {
+    opacity: 1;
+  }
+
+  .progress-fill {
+    transform: none;
+    animation: none;
+    width: 50%;
+  }
+}
