@@ -1,0 +1,208 @@
+.community-screen {
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  padding-bottom: 40px;
+}
+
+.community-header {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.community-header h1 {
+  font-size: 3rem;
+  margin: 0 0 15px 0;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.community-header p {
+  font-size: 1.2rem;
+  margin: 0;
+  opacity: 0.9;
+}
+
+.community-navigation {
+  max-width: 1200px;
+  margin: 0 auto 30px;
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.nav-button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 25px;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Accessibility focus styles */
+.nav-button:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.4);
+}
+
+.nav-button i {
+  font-size: 1.2rem;
+}
+
+.nav-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-button.active {
+  background: var(--color-primary);
+  color: white;
+}
+
+.community-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+}
+
+/* Skip link for keyboard users */
+.skip-link {
+  position: fixed;
+  top: -100px;
+  left: 20px;
+  background: var(--color-primary);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 0 0 5px 5px;
+  z-index: 1000;
+  transition: top 0.3s ease;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Error container styles */
+.community-error-container {
+  background: var(--color-error-bg);
+  color: var(--color-error);
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px;
+  text-align: center;
+}
+
+/* Tab panel focus styles */
+[role="tabpanel"]:focus {
+  outline: none;
+  box-shadow: inset 0 0 0 2px var(--color-primary);
+  border-radius: 10px;
+}
+
+/* High contrast mode support */
+@media (forced-colors: active) {
+  .nav-button {
+    border: 2px solid currentColor;
+  }
+
+  .nav-button.active {
+    border-color: currentColor;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .nav-button {
+    transition: none;
+  }
+
+  .nav-button:hover {
+    transform: none;
+  }
+
+  .skip-link {
+    transition: none;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .community-screen {
+    background-color: var(--bg-primary-dark);
+  }
+
+  .community-header {
+    background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary-darker));
+  }
+
+  .nav-button {
+    background: var(--bg-secondary-dark);
+    color: var(--text-primary-dark);
+  }
+
+  .nav-button.active {
+    background: var(--color-primary);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .community-header {
+    padding: 40px 20px;
+  }
+
+  .community-header h1 {
+    font-size: 2.2rem;
+  }
+
+  .community-header p {
+    font-size: 1rem;
+  }
+
+  .nav-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .community-navigation {
+    flex-direction: column;
+    padding: 0 10px;
+  }
+}
+
+/* CSS Custom Properties */
+:root {
+  --color-primary: #3498db;
+  --color-primary-dark: #2980b9;
+  --color-primary-darker: #1f6da3;
+  --bg-primary: #f8f9fa;
+  --bg-primary-dark: #1a1a1a;
+  --bg-secondary: white;
+  --bg-secondary-dark: #2c3e50;
+  --text-primary: #2c3e50;
+  --text-primary-dark: #ecf0f1;
+  --color-error: #e74c3c;
+  --color-error-bg: #fdeaea;
+}
+
+/* Animation keyframes are in CommunityTransitions.css */
