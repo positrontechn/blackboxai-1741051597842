@@ -1,0 +1,198 @@
+.planting-day-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.planting-day-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.planting-day-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.planting-day-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.planting-day-card:hover .planting-day-image img {
+  transform: scale(1.05);
+}
+
+.planting-day-date {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  padding: 20px;
+  color: white;
+  font-weight: 500;
+}
+
+.planting-day-content {
+  padding: 20px;
+}
+
+.planting-day-content h3 {
+  margin: 0 0 10px 0;
+  color: #2c3e50;
+  font-size: 1.4rem;
+}
+
+.planting-day-location {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #7f8c8d;
+  margin-bottom: 15px;
+}
+
+.planting-day-location i {
+  color: #3498db;
+}
+
+.planting-day-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #34495e;
+}
+
+.stat-item i {
+  color: #27ae60;
+  font-size: 1.2rem;
+}
+
+.volunteer-progress {
+  background: #ecf0f1;
+  height: 6px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: #27ae60;
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  display: block;
+  text-align: right;
+  color: #7f8c8d;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+.planting-day-description {
+  color: #34495e;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.planting-day-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.join-button {
+  padding: 10px 20px;
+  background: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.join-button:hover {
+  background: #219a52;
+  transform: translateY(-2px);
+}
+
+.equipment-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #7f8c8d;
+  font-size: 0.9rem;
+}
+
+.equipment-note i {
+  color: #3498db;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.planting-day-card {
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .planting-day-stats {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .planting-day-footer {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .join-button {
+    width: 100%;
+  }
+
+  .equipment-note {
+    justify-content: center;
+  }
+}
+
+/* Hover Effects */
+.planting-day-card:hover .join-button {
+  background: #219a52;
+}
+
+.join-button:active {
+  transform: translateY(0);
+}
